@@ -21,7 +21,7 @@
 
 ## **Proje Hakkında**
 
-**Imladris Kütüphanesi Yönetim Sistemi**, sisteme giriş yapan kullanıcıların kütüphanedeki kitaplar ve yazarlarla ilgili bilgi almasına ve  kitap/yazar ekleme, düzenleme ve silme işlemlerini yapabilmesine olanak tanır. 
+- **Imladris Kütüphanesi Yönetim Sistemi**, sisteme giriş yapan kullanıcıların kütüphanedeki kitaplar ve yazarlarla ilgili bilgi almasına ve  kitap/yazar ekleme, düzenleme ve silme işlemlerini yapabilmesine olanak tanır. 
 ---
 
 ## **Özellikler**
