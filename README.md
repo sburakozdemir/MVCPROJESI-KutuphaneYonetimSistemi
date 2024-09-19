@@ -153,7 +153,7 @@ Razor View'ları, kullanıcılara sunulan sayfaların oluşturulmasında kullan�
 
 ## **Veri Yönetimi**
 
-Proje veri tabanı kullanmamakta olup, veriler statik listeler aracılığıyla yönetilmektedir. 
+- Proje veri tabanı kullanmamakta olup, veriler statik listeler aracılığıyla yönetilmektedir. 
 ---
 
 ## **CSS ve Statik Dosyalar**
