@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Hoş Geldiniz - Imladris Kütüphanesi";
+    Layout = null; // Ana layout'tan bağımsız çalışacak
+}
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="~/css/home.css"> <!-- Özel Home sayfası CSS dosyası -->
+    </style>
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <header class="hero">
+            <div class="container">
+                <h1>Imladris Kütüphanesine Hoş Geldiniz!</h1>
+                <p>Burada kitaplar ve bilgilerle dolu bir dünyayı keşfedin.</p>
+                <a href="@Url.Action("List", "Book")" class="btn btn-custom">Keşfet</a>
+            </div>
+        </header>
+
+
+
+
+
+        <footer class="footer">
+            © 2024 - Imladris Kütüphanesi. Tüm hakları saklıdır
+        </footer>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+﻿body {
+    background: url('/images/lib.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.hero {
+    position: relative; /* Arka plana overlay eklemek için gerekli */
+    color: white;
+    text-align: center;
+    padding: 150px 0;
+}
+
+    /* Arka plan için daha okunabilir yazılar */
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Yarı şeffaf siyah katman */
+        z-index: 1;
+    }
+
+    .hero h1, .hero p, .hero a {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+        font-weight: bold;
+        text-shadow: 3px 3px 5px rgba(0,0,0,0.7);
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+
+.btn-custom {
+    background-color: #ffcc00;
+    color: #333;
+    font-weight: bold;
+    border-radius: 25px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+    .btn-custom:hover {
+        background-color: #ffb700;
+    }
+
+.footer {
+    background-color: rgba(0,0,0,0.7); /* Footer arka plan rengi */
+    color: white; /* Yazı rengi */
+    text-align: center; /* Yazıyı ortala */
+    padding: 20px; /* Footer için boşluk ekle */
+    position: relative;
+    margin-top: auto; /* Footer'ı sayfanın altına it */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.content-wrapper {
+    min-height: 100vh; /* Sayfanın yüksekliği minimum 100vh olacak */
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem; /* Başlık font boyutu */
+    color: #ffffff; /* Başlık rengi - Beyaz renk */
+}
+
+.navbar-nav {
+    margin-left: auto; /* Linkleri sağa yaslamak için */
+}
+
+    .navbar-nav .nav-link {
+        color: #ffffff; /* Link rengi - Beyaz renk */
+        font-size: 1rem; /* Link font boyutu */
+        font-weight: 500; /* Link yazı kalınlığı */
+        padding: 0.5rem 1rem; /* Link içi boşluk */
+        text-transform: uppercase; /* Büyük harf yapma */
+        transition: color 0.3s; /* Renk geçiş efekti */
+    }
+
+        .navbar-nav .nav-link:hover {
+            color: #007bff; /* Hover efekti rengi - Mavi */
+            text-decoration: none; /* Hover sırasında alt çizgi kaldır */
+        }
+
+.navbar-text {
+    font-size: 1rem; /* Kullanıcı adı font boyutu */
+    font-weight: 400; /* Kullanıcı adı yazı kalınlığı */
+    color: #ffffff; /* Kullanıcı adı rengi - Beyaz renk */
+}
+
+.btn-link {
+    color: #007bff; /* Çıkış yap butonu rengi - Mavi */
+    font-size: 1rem; /* Buton font boyutu */
+    text-decoration: none; /* Alt çizgi kaldır */
+}
+
+    .btn-link:hover {
+        color: #0056b3; /* Hover efekti rengi - Daha koyu mavi */
+        text-decoration: underline; /* Hover sırasında alt çizgi */
+    }

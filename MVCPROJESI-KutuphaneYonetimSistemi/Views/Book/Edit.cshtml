@@ -1,0 +1,63 @@
+﻿@model BookEditViewModel
+
+<h3 class="text-center mt-5">Kitap Düzenleme</h3>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label for="Title">Başlık</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="AuthorId">Yazar</label>
+        <select asp-for="AuthorId" asp-items="Model.Authors" class="form-control"></select>
+        <span asp-validation-for="AuthorId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Genre">Tür</label>
+        <input asp-for="Genre" class="form-control" />
+        <span asp-validation-for="Genre" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="PublishDate">Yayın Tarihi</label>
+        <input asp-for="PublishDate" class="form-control" />
+        <span asp-validation-for="PublishDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="ISBN">ISBN</label>
+        <input asp-for="ISBN" class="form-control" />
+        <span asp-validation-for="ISBN" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="CopiesAvailable">Mevcut Kopya Sayısı</label>
+        <input asp-for="CopiesAvailable" class="form-control" />
+        <span asp-validation-for="CopiesAvailable" class="text-danger"></span>
+    </div>
+
+    <!-- Mevcut Resmin Önizlemesi -->
+    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+    {
+        <div class="form-group">
+            <label>Mevcut Kitap Resmi</label>
+            <div>
+                <img src="@Model.ImageUrl" alt="Kitap Resmi" width="150" />
+            </div>
+        </div>
+    }
+
+    <!-- Resim Yükleme Alanı -->
+    <div class="form-group">
+        <label for="ImageFile">Kapak Resmi Yükle</label>
+        <input type="file" asp-for="ImageFile" class="form-control-file" />
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Güncelle</button>
+</form>

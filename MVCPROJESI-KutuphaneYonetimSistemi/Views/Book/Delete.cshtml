@@ -1,0 +1,14 @@
+﻿@model BookViewModel
+
+<h3 class="text-center mt-5">Kitap Silme Onayı</h3>
+
+<div class="alert alert-danger">
+    <h4>Kitabı silmek istediğinize emin misiniz?</h4>
+    <p><strong>@Model.Title</strong> adlı kitabı silmek üzeresiniz.</p>
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a asp-action="List" class="btn btn-secondary">İptal</a>
+</form>

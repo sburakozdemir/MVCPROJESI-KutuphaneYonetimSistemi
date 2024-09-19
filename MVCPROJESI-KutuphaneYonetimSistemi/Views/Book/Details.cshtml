@@ -1,0 +1,19 @@
+﻿@model BookViewModel
+
+<h3 class="text-center mt-5">Kitap Detayları</h3>
+
+<div class="card mb-4">
+    <img src="@Model.ImageUrl" class="card-img-top" alt="@Model.Title" style="width: 100%; height: 250px; object-fit: contain;">
+    <div class="card-header">
+        <h5 class="card-title">@Model.Title</h5>
+    </div>
+    <div class="card-body">
+        <p><strong>Yazar:</strong> @Model.AuthorName</p>
+        <p><strong>Tür:</strong> @Model.Genre</p>
+        <p><strong>Yayın Tarihi:</strong> @Model.PublishDate.ToString("dd MMM yyyy")</p>
+        <p><strong>ISBN:</strong> @Model.ISBN</p>
+        <p><strong>Mevcut Kopya Sayısı:</strong> @Model.CopiesAvailable</p>
+    </div>
+</div>
+
+<a asp-action="List" class="btn btn-secondary">Geri Dön</a>

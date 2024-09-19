@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AuthorViewModel>
+
+<h2>Yazarlarımız</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>İsim</th>
+            <th>Soyisim</th>
+            <th>Doğum Tarihi</th>
+            <th>Detaylar</th>
+            <th>Düzenle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var author in Model)
+        {
+            <tr>
+                <td>@author.FirstName</td>
+                <td>@author.LastName</td>
+                <td>@author.DateOfBirth?.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a asp-action="Details" asp-controller="Author" asp-route-id="@author.Id" class="btn btn-info">Detaylar</a>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-controller="Author" asp-route-id="@author.Id" class="btn btn-warning">Düzenle</a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-controller="Author" asp-route-id="@author.Id" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" asp-controller="Author" class="btn btn-success">Yeni Yazar Ekle</a>

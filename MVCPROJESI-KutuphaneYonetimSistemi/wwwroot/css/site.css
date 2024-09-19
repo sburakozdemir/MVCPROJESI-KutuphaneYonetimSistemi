@@ -1,0 +1,95 @@
+/* Navbar baþlýðýný ve linkleri özelleþtirme */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem; /* Baþlýk font boyutu */
+    color: #ffffff; /* Baþlýk rengi - Beyaz renk */
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff; /* Link rengi - Beyaz renk */
+    font-size: 1rem; /* Link font boyutu */
+    font-weight: 500; /* Link yazý kalýnlýðý */
+    padding: 0.5rem 1rem; /* Link içi boþluk */
+    text-transform: uppercase; /* Büyük harf yapma */
+    transition: color 0.3s; /* Renk geçiþ efekti */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff; /* Hover efekti rengi - Mavi */
+    text-decoration: none; /* Hover sýrasýnda alt çizgi kaldýr */
+}
+
+.navbar-text {
+    font-size: 1rem; /* Kullanýcý adý font boyutu */
+    font-weight: 400; /* Kullanýcý adý yazý kalýnlýðý */
+    color: #ffffff; /* Kullanýcý adý rengi - Beyaz renk */
+}
+
+.btn-link {
+    color: #007bff; /* Çýkýþ yap butonu rengi - Mavi */
+    font-size: 1rem; /* Buton font boyutu */
+    text-decoration: none; /* Alt çizgi kaldýr */
+}
+
+.btn-link:hover {
+    color: #0056b3; /* Hover efekti rengi - Daha koyu mavi */
+    text-decoration: underline; /* Hover sýrasýnda alt çizgi */
+}
+
+body {
+    background: url('/images/lib.png') no-repeat center center fixed;
+    background-size: cover; /* Resmin boyutunu ekranýn tamamýna göre ayarla */
+    background-repeat: repeat; /* Resmi tekrar et */
+    background-attachment: fixed; /* Arka planý sabitle */
+}
+
+/* Ýçerik konteyneri için stil */
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Beyaz rengin %80 opaklýkla arka plana uygulanmasý */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Ýçerik konteyneri için hafif gölge */
+    margin-bottom: 0; /* Ýçerik konteynerinin altýnda boþluk býrakma */
+}
+
+/* Ýçerik konteynerýnýn sonundaki boþluðu kaldýrma */
+.content-wrapper {
+    margin-bottom: 0;
+}
+
+/* Footer için stil */
+.footer {
+    text-align: center; /* Yazýyý ortala */
+    padding: 20px; /* Footer için boþluk ekle */
+    background-color: rgba(0, 0, 0, 0.7); /* Arka plan rengi */
+    color: white; /* Yazý rengi */
+    margin-top: auto; /* Footer'ýn en altta olmasýný saðlar */
+}
+
+/* Form alanlarýný hizalama ve düzenleme */
+.form-group {
+    margin-bottom: 1rem; /* Alanlar arasýnda boþluk ekle */
+}
+
+    .form-group label {
+        display: block; /* Label'ý block seviyesinde gösterir */
+        margin-bottom: 0.5rem; /* Label ile input arasýnda boþluk */
+    }
+
+    .form-group input {
+        width: 100%; /* Input alanýný geniþletir */
+        padding: 0.5rem; /* Ýç boþluk ekler */
+        border-radius: 0.25rem; /* Köþeleri yuvarlar */
+        border: 1px solid #ced4da; /* Kenarlýk rengi */
+    }
+
+        .form-group input:focus {
+            border-color: #007bff; /* Focus durumunda kenarlýk rengi */
+            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25); /* Focus durumunda gölge */
+        }
+
+.btn-primary {
+    padding: 0.5rem 1rem; /* Buton içi boþluk */
+    font-size: 1rem; /* Buton font boyutu */
+    border-radius: 0.25rem; /* Buton köþelerini yuvarlar */
+}

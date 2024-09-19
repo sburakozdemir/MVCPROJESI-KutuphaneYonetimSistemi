@@ -1,0 +1,14 @@
+﻿@model AuthorViewModel
+
+<h2>Yazar Sil</h2>
+
+<p>Bu yazarı silmek istediğinizden emin misiniz?</p>
+
+<h4>@Model.FullName</h4>
+
+<form asp-action="Delete" asp-controller="Author" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a asp-action="List" asp-controller="Author" class="btn btn-secondary">İptal</a>
+</form>

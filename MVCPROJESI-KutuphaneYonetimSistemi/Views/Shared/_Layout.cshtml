@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MVCPROJESI_KutuphaneYonetimSistemi</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MVCPROJESI_KutuphaneYonetimSistemi.styles.css" asp-append-version="true" />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            flex: 1;
+        }
+
+        footer {
+            margin-top: auto;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <partial name="_navPartial" />
+        <div class="container">
+            @RenderBody()
+        </div>
+        <partial name="_footerPartial" />
+    </div>
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

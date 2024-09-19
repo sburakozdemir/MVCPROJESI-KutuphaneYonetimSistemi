@@ -1,0 +1,49 @@
+﻿@model BookCreateViewModel
+
+<h2>Kitap Ekle</h2>
+
+<form asp-action="Create" asp-controller="Book" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Title">Kitap Adı</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AuthorId">Yazar Adı</label>
+        <select asp-for="AuthorId" asp-items="Model.Authors" class="form-control"></select>
+        <span asp-validation-for="AuthorId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Genre">Kitap Türü</label>
+        <input asp-for="Genre" class="form-control" />
+        <span asp-validation-for="Genre" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PublishDate">Yayın Tarihi</label>
+        <input asp-for="PublishDate" class="form-control" type="date" />
+        <span asp-validation-for="PublishDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ISBN"></label>
+        <input asp-for="ISBN" class="form-control" />
+        <span asp-validation-for="ISBN" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CopiesAvailable">Mevcut Kopya Sayısı</label>
+        <input asp-for="CopiesAvailable" class="form-control" />
+        <span asp-validation-for="CopiesAvailable" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImageFile">Kapak Resmi</label>
+        <input asp-for="ImageFile" type="file" class="form-control" />
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>

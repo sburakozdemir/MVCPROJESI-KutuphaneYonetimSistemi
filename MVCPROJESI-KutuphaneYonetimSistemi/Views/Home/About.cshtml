@@ -1,0 +1,46 @@
+﻿@model AboutViewModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Imladris Kütüphanesi</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css">
+    
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="about-container">
+            <h1 class="about-title">@Model.Title</h1>
+
+            <!-- 1. Paragraf -->
+            <p class="about-description">
+                @Model.Description.Split(new[] { "\n\n" }, StringSplitOptions.None)[0]
+            </p>
+
+            <!-- 2. Paragraf -->
+            <p class="about-description">
+                @Model.Description.Split(new[] { "\n\n" }, StringSplitOptions.None)[1]
+            </p>
+
+            <!-- 3. Paragraf -->
+            <p class="about-description">
+                @Model.Description.Split(new[] { "\n\n" }, StringSplitOptions.None)[2]
+            </p>
+
+            <!-- 4. Paragraf -->
+            <p class="about-description">
+                @Model.Description.Split(new[] { "\n\n" }, StringSplitOptions.None)[3]
+            </p>
+
+            <p class="contact-info">@Model.ContactInfo</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿@model AuthorDetailsViewModel
+
+<div class="container mt-5">
+    <h2 class="text-center">@Model.FullName</h2>
+    <p class="text-center">Doğum Tarihi: @Model.DateOfBirth?.ToString("dd MMM yyyy")</p>
+
+    <h3 class="mt-5">Yazarın Kitapları</h3>
+    <div class="row">
+        @if (Model.Books != null && Model.Books.Any())
+        {
+            @foreach (var book in Model.Books)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <!-- Kitap Resmi -->
+                        <img src="@book.ImageUrl" class="card-img-top" alt="@book.Title" style="width: 100%; height: 250px; object-fit: contain">
+                        <div class="card-body">
+                            <h5 class="card-title">@book.Title</h5>
+                            <p class="card-text"><strong>Tür:</strong> @book.Genre</p>
+                            <p class="card-text"><strong>Yayın Tarihi:</strong> @book.PublishDate.ToString("dd MMM yyyy")</p>
+
+                            <!-- Detayları Gör Butonu -->
+                            <a asp-action="Details" asp-controller="Book" asp-route-id="@book.Id" class="btn btn-primary">Detayları Gör</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Bu yazarın henüz bir kitabı yok.</p>
+        }
+    </div>
+
+    <a asp-action="List" class="btn btn-secondary mt-4">Yazarlara Geri Dön</a>
+</div>
