@@ -7,12 +7,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.DataProtection;
 
 namespace MVCPROJESI_KutuphaneYonetimSistemi.Controllers
 {
     public class AuthController : Controller
     {
         private static List<User> _users = new List<User>();
+
+
+        private readonly IDataProtector _dataProtector;
+        public AuthController(IDataProtectionProvider dataProtectionProvider)
+        {
+            _dataProtector = dataProtectionProvider.CreateProtector("security");
+        }
 
         // SignUp: Yeni üye kaydı
         [HttpGet]
@@ -43,7 +51,7 @@ namespace MVCPROJESI_KutuphaneYonetimSistemi.Controllers
                 Id = _users.Count + 1, // Benzersiz kimlik
                 FullName = formData.FullName,
                 Email = formData.Email,
-                Password = formData.Password,
+                Password = _dataProtector.Protect(formData.Password),
                 PhoneNumber = formData.PhoneNumber,
                 JoinDate = DateTime.Now // Otomatik olarak şu anki tarihi ayarlar
             };
@@ -70,31 +78,44 @@ namespace MVCPROJESI_KutuphaneYonetimSistemi.Controllers
             }
 
             // Girilen e-posta ve parolaya sahip bir kullanıcı var mı?
-            var user = _users.FirstOrDefault(u => u.Email == formData.Email && u.Password == formData.Password);
+            var user = _users.FirstOrDefault(x => x.Email.ToLower() == formData.Email.ToLower());
 
             if (user == null)
             {
                 ModelState.AddModelError(string.Empty, "Geçersiz e-posta veya parola.");
                 return View(formData);
             }
+            var rawPassword = _dataProtector.Unprotect(user.Password);
 
-            // Başarılı giriş
-            var claims = new List<Claim>
-    {
-        new Claim(ClaimTypes.Name, user.FullName),
-        new Claim(ClaimTypes.Email, user.Email)
-    };
-
-            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-            var authProperties = new AuthenticationProperties
+            if (rawPassword == formData.Password)
             {
-                IsPersistent = true // Çerezin kalıcı olmasını sağlar
-            };
 
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
+                // Başarılı giriş
+                var claims = new List<Claim>
+              {
+                new Claim(ClaimTypes.Name, user.FullName),
+                 new Claim(ClaimTypes.Email, user.Email)
+               };
 
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var authProperties = new AuthenticationProperties
+                {
+                    IsPersistent = true // Çerezin kalıcı olmasını sağlar
+                };
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
+
+
+               
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Geçersiz e-posta veya parola.");
+                return View(formData);
+            }
             return RedirectToAction("List", "Book");
-        }
+
+        } 
 
 
         public IActionResult Welcome()
